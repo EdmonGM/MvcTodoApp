@@ -27,6 +27,12 @@
                         </form> 
          
                         <!-- TODO:  إضافة زر تعديل المهمة--> 
+                        <form method="post" asp-action="EditTask" style="display: inline">
+                            <label for="edit">تعديل</label>
+                            <input type="hidden" name="id" value="@task.Id" />
+                            <input type="text" name="newTitle" id="edit"/>
+                            <button type="submit">تعديل</button>
+                        </form>
                     } 
                 </li> 
             } 
