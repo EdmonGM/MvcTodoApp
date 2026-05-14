@@ -57,16 +57,16 @@ public class HomeController : Controller
     public IActionResult EditTask(int id, string newTitle)
     {
         // TODO: ابحث عن المهمة باستخدام id 
-        for(var i = 0; i < tasks.Count; i++)
+        foreach (var task in tasks)
         {
             // TODO: تأكد من أن المهمة موجودة وأن newTitle  غير فارغ 
-            if (tasks[i].Id == id)
-            {
-                if(!newTitle.IsWhiteSpace())
-                    // TODO:  عدّل عنوان المهمة 
-                    tasks[i].Title = newTitle;
-            }
+            if (task.Id != id) continue;
+            
+            if(!newTitle.IsWhiteSpace())
+                // TODO:  عدّل عنوان المهمة 
+                task.Title = newTitle;
         }
+
         return RedirectToAction("Index");
     }
 }
