@@ -59,10 +59,10 @@ public class HomeController : Controller
         // TODO: ابحث عن المهمة باستخدام id 
         foreach (var task in tasks)
         {
-            // TODO: تأكد من أن المهمة موجودة وأن newTitle  غير فارغ 
             if (task.Id != id) continue;
             
-            if(!newTitle.IsWhiteSpace())
+            // TODO: تأكد من أن المهمة موجودة وأن newTitle  غير فارغ 
+            if(!string.IsNullOrEmpty(newTitle))
                 // TODO:  عدّل عنوان المهمة 
                 task.Title = newTitle;
         }
